@@ -4,5 +4,13 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>
+        <h3>Enter name of your lost Item</h3>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Search..." aria-label="Search" aria-describedby="basic-addon2" id="searchInput">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" asp-controller="ItemTable" asp-action="SearchPage" type="button" id="searchButton">Search</button>
+            </div>
+        </div>
+    </p>
 </div>

@@ -1,0 +1,44 @@
+﻿@model IEnumerable<LostAndFound.ViewModels.ItemTableVM>
+
+
+<p>
+     <h2>List of lost Items</h2>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FoundSeatLocation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FloorNumber)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ItemName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FoundSeatLocation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FloorNumber)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
