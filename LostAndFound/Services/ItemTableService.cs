@@ -2,6 +2,7 @@
 using LostAndFound.IServices;
 using LostAndFound.Models;
 using LostAndFound.ViewModels;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
 namespace LostAndFound.Services
@@ -25,9 +26,10 @@ namespace LostAndFound.Services
 
         public IEnumerable<ItemTableVM> SearchByItemName(string itemName)
         {
-            return _mapper.Map<List<ItemTableVM>>(_context.UserTables.FromSqlRaw('EXEC GetDetailsByName {0}', itemName));
-        }
+            var param = new SqlParameter("@itemName", itemName);
+            List<ItemTable> items =  _context.ItemTables.FromSqlRaw($"EXEC dbo.GetDetailsByName '{itemName}'").ToList();
 
-  
+            return _mapper.Map<List<ItemTableVM>>(items);
+        }
     }
 }
